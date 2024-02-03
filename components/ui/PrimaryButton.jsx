@@ -31,12 +31,12 @@ const styles = StyleSheet.create({
   },
 
   buttonInnerContainer: {
-    backgroundColor: Colors.primary500,
+    // backgroundColor: Colors.primary500,
     borderRadius: 28,
     paddingVertical: 8,
     paddingHorizontal: 16,
     margin: 4,
-    elevation: 2,
+    // elevation: 2,
   },
 
   buttonText: {

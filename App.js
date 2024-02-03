@@ -2,20 +2,44 @@ import { useState } from 'react';
 import { StyleSheet, ImageBackground, SafeAreaView } from 'react-native';
 import StartGameScreen from './screens/StartGameScreen';
 import GameScreen from './screens/GameScreen';
+import GameOverScreen from './screens/GameOverScreen';
 import { LinearGradient } from 'expo-linear-gradient';
 import Colors from './constants/colors';
+import { useFonts } from 'expo-font';
+import AppLoading from 'expo-app-loading';
 
 export default function App() {
   const [userNumber, setUserNumber] = useState();
+  const [gameIsOver, setGameIsOver] = useState(true);
+
+  const [fontsLoading] = useFonts({
+    'vivita-light': require('./assets/fonts/VIVITALight.ttf'),
+    'vivita-regular': require('./assets/fonts/VIVITARegular.ttf'),
+    'vivita-medium': require('./assets/fonts/VIVITAMedium.ttf'),
+    'vivita-bold': require('./assets/fonts/VIVITABold.ttf'),
+  });
+
+  if (!fontsLoaded) {
+    return <AppLoading />
+  };
 
   const pickedNumberHandler = (pickedNumber) => {
     setUserNumber(pickedNumber);
+    setGameIsOver(false);
   };
+
+  const gameOverHandler = () => {
+    setGameIsOver(true);
+  }
 
   let screen = <StartGameScreen onPickNumber={pickedNumberHandler} />
 
   if (userNumber) {
-    screen = <GameScreen />
+    screen = <GameScreen userNumber={userNumber} onGameOver={gameOverHandler} />
+  } 
+
+  if (gameIsOver && userNumber) {
+    screen = <GameOverScreen />
   }
 
   return (
