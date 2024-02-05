@@ -48,10 +48,20 @@ const StartGameScreen = ({ onPickNumber }) => {
         />
         <View style={styles.buttonsContainer}>
           <View style={styles.buttonContainer}>
-            <PrimaryButton onPress={resetInputHandler}>Reset</PrimaryButton>
+            <PrimaryButton
+              onPress={resetInputHandler}
+              style={styles.button}
+            >
+              Reset
+            </PrimaryButton>
           </View>
           <View style={styles.buttonContainer}>
-            <PrimaryButton onPress={confirmInputHandler}>Confirm</PrimaryButton>
+            <PrimaryButton
+              onPress={confirmInputHandler}
+              style={styles.button}
+            >
+              Confirm
+            </PrimaryButton>
           </View>
         </View>
       </Card>
@@ -85,9 +95,21 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-around',
+    marginTop: 23,
   },
 
   buttonContainer: {
     flex: 1,
+  },
+
+  button: {
+    buttonInnerContainer: {
+      backgroundColor: Colors.primary500,
+      borderRadius: 28,
+      paddingVertical: 8,
+      paddingHorizontal: 16,
+      margin: 4,
+      elevation: 2,
+    },
   },
 });

@@ -10,12 +10,11 @@ export default Title;
 
 const styles = StyleSheet.create({
   title: {
-    fontSize: 23,
-    fontWeight: 'bold',
+    fontFamily: 'spacex',
+    fontSize: 18,
+    textTransform: 'uppercase',
     color: 'seashell',
     textAlign: 'center',
-    borderWidth: 2,
-    borderColor: Colors.accent500,
     padding: 12,
   },
 });
