@@ -6,30 +6,33 @@ import GameOverScreen from './screens/GameOverScreen';
 import { LinearGradient } from 'expo-linear-gradient';
 import Colors from './constants/colors';
 import { useFonts } from 'expo-font';
-import AppLoading from 'expo-app-loading';
+// import * as SplashScreen from 'expo-splash-screen';
 
 export default function App() {
   const [userNumber, setUserNumber] = useState();
   const [gameIsOver, setGameIsOver] = useState(true);
+  const [guessRounds, setGuessRounds] = useState(0);
 
-  const [fontsLoading] = useFonts({
-    'vivita-light': require('./assets/fonts/VIVITALight.ttf'),
-    'vivita-regular': require('./assets/fonts/VIVITARegular.ttf'),
-    'vivita-medium': require('./assets/fonts/VIVITAMedium.ttf'),
-    'vivita-bold': require('./assets/fonts/VIVITABold.ttf'),
+  useFonts({
+    'edge': require('./assets/fonts/Edges.ttf'),
+    'spacex': require('./assets/fonts/SpaceX.ttf'),
   });
 
-  if (!fontsLoaded) {
-    return <AppLoading />
-  };
+  // SplashScreen.preventAutoHideAsync();
 
   const pickedNumberHandler = (pickedNumber) => {
     setUserNumber(pickedNumber);
     setGameIsOver(false);
   };
 
-  const gameOverHandler = () => {
+  const gameOverHandler = (numberOfRounds) => {
     setGameIsOver(true);
+    setGuessRounds(numberOfRounds);
+  }
+
+  const startNewGameHandler = () => {
+    setUserNumber(null);
+    setGuessRounds(0);
   }
 
   let screen = <StartGameScreen onPickNumber={pickedNumberHandler} />
@@ -39,7 +42,7 @@ export default function App() {
   } 
 
   if (gameIsOver && userNumber) {
-    screen = <GameOverScreen />
+    screen = <GameOverScreen userNumber={userNumber} roundsNumber={guessRounds} onStartNewGame={startNewGameHandler} />
   }
 
   return (
