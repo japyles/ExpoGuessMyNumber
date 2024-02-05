@@ -3,7 +3,7 @@
     "name": "guessMyNumber",
     "slug": "guessMyNumber",
     "version": "1.0.0",
-    "orientation": "portrait",
+    "orientation": "default",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
     "splash": {
@@ -27,7 +27,16 @@
       "favicon": "./assets/favicon.png"
     },
     "plugins": [
-      "expo-font"
+      [
+        "expo-font",
+        {
+          "fonts": [
+            "./assets/fonts/Inter-Black.otf",
+            "./assets/fonts/SpaceX.ttf",
+            "./assets/fonts/Edges.ttf"
+          ]
+        }
+      ]
     ]
   }
 }

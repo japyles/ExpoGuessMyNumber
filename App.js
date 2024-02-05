@@ -5,20 +5,11 @@ import GameScreen from './screens/GameScreen';
 import GameOverScreen from './screens/GameOverScreen';
 import { LinearGradient } from 'expo-linear-gradient';
 import Colors from './constants/colors';
-import { useFonts } from 'expo-font';
-// import * as SplashScreen from 'expo-splash-screen';
 
 export default function App() {
   const [userNumber, setUserNumber] = useState();
   const [gameIsOver, setGameIsOver] = useState(true);
   const [guessRounds, setGuessRounds] = useState(0);
-
-  useFonts({
-    'edge': require('./assets/fonts/Edges.ttf'),
-    'spacex': require('./assets/fonts/SpaceX.ttf'),
-  });
-
-  // SplashScreen.preventAutoHideAsync();
 
   const pickedNumberHandler = (pickedNumber) => {
     setUserNumber(pickedNumber);
