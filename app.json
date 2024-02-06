@@ -31,7 +31,6 @@
         "expo-font",
         {
           "fonts": [
-            "./assets/fonts/Inter-Black.otf",
             "./assets/fonts/SpaceX.ttf",
             "./assets/fonts/Edges.ttf"
           ]

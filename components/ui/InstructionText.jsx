@@ -10,7 +10,7 @@ export default InstructionText;
 
 const styles = StyleSheet.create({
   instructionText: {
-    fontFamily: 'edge',
+    fontFamily: 'Edges',
     color: Colors.accent500,
     fontSize: 23,
   },
